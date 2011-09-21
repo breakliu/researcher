@@ -1,0 +1,37 @@
+cn:
+  activerecord:
+    attributes:
+      user:
+        username: "用户名"
+        password: "密码"
+        password_confirmation: "再次输入"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "不能为空"
+            username:
+              blank: "不能为空"
+              taken: "已存在"
+
+
+  layouts:
+    application: 
+      title: "一点研究申报系统"
+      current_user_as: "当前用户为 "
+      login: "登 陆"
+      logout: "退 出"
+      signup: "注 册"
+
+  sessions: 
+    new:
+      username: "用户名"
+      password: "密码"
+      remember_me: "记住我"
+      login: "登 陆"
+
+  users:
+    new:
+      submit: "提 交"
+
