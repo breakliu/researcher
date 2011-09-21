@@ -11,6 +11,7 @@ cn:
           attributes:
             password:
               blank: "不能为空"
+              confirmation: "两次密码输入不一致"
             username:
               blank: "不能为空"
               taken: "已存在"
@@ -35,3 +36,5 @@ cn:
     new:
       submit: "提 交"
 
+
+  first_login: "请先登陆"
