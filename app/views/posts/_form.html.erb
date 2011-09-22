@@ -4,9 +4,9 @@
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -15,7 +15,51 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+  <div class="field">
+    <%= f.label :grade_or_class %><br />
+    <%= f.text_field :grade_or_class %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :school %><br />
+    <%= f.text_field :school %>
+  </div>
+  <div class="field">
+    <%= f.label :research_time %><br />
+    <%= f.text_field :research_time %>
+  </div>
+  <div class="field">
+    <%= f.label :bk_purpose_importance %><br />
+    <%= f.text_area :bk_purpose_importance %>
+  </div>
+  <div class="field">
+    <%= f.label :content_question %><br />
+    <%= f.text_area :content_question %>
+  </div>
+  <div class="field">
+    <%= f.label :cond_outcome %><br />
+    <%= f.text_area :cond_outcome %>
+  </div>
+  <div class="field">
+    <%= f.label :feature_creation %><br />
+    <%= f.text_area :feature_creation %>
+  </div>
+  <div class="field">
+    <%= f.label :process %><br />
+    <%= f.text_area :process %>
+  </div>
+  <div class="field">
+    <%= f.label :opinion1 %><br />
+    <%= f.text_area :opinion1 %>
+  </div>
+  <div class="field">
+    <%= f.label :opinion2 %><br />
+    <%= f.text_area :opinion2, :cols=>100 %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit')%>
   </div>
 <% end %>

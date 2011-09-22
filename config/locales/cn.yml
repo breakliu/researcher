@@ -5,6 +5,8 @@ cn:
         username: "用户名"
         password: "密码"
         password_confirmation: "再次输入"
+      post:
+        title: "课题名称"
     errors:
       models:
         user:
@@ -35,6 +37,7 @@ cn:
   users:
     new:
       submit: "提 交"
+      form_is_invalid: "信息无效"
 
   posts:
     index:
@@ -45,6 +48,19 @@ cn:
       destroy: "删 除"
       are_you_sure: "你确定删除?"
       new_post: "新 建"
+    edit:
+      show: "查 看"
+      back: "返 回"
+      edit_post: "编辑课题"
+    show:
+      edit: "编 辑"
+      back: "返 回"
+      title: "课题名称"
+    form:
+      submit: "提 交"
+    new:
+      new_post: "新建一点研究课题"
+      back: "返 回"
 
 
 

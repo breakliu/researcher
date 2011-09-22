@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'therubyracer'
 gem 'rake', '0.8.7'
 
+#gem "carrierwave"
+#gem "rails_kindeditor"
 
 # Gems used only for assets and not required
 # in production environments by default.

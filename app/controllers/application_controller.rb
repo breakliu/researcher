@@ -6,5 +6,4 @@ class ApplicationController < ActionController::Base
       redirect_to login_url, :alert => I18n.t('first_login')
     end
 
-
 end

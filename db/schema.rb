@@ -11,12 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110921025045) do
+ActiveRecord::Schema.define(:version => 20110922022612) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id"
+    t.integer  "user_id"
+    t.string   "grade_or_class",        :default => ""
+    t.string   "subject",               :default => ""
+    t.string   "school",                :default => ""
+    t.string   "research_time",         :default => ""
+    t.text     "bk_purpose_importance", :default => ""
+    t.text     "content_question",      :default => ""
+    t.text     "cond_outcome",          :default => ""
+    t.text     "feature_creation",      :default => ""
+    t.text     "process",               :default => ""
+    t.text     "opinion1",              :default => ""
+    t.text     "opinion2",              :default => ""
   end
 
   create_table "users", :force => true do |t|
