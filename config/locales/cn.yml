@@ -36,5 +36,16 @@ cn:
     new:
       submit: "提 交"
 
+  posts:
+    index:
+      title: "一点研究课题列表"
+      table_title: "课题名称"
+      show: "查 看"
+      edit: "编 辑"
+      destroy: "删 除"
+      are_you_sure: "你确定删除?"
+      new_post: "新 建"
+
+
 
   first_login: "请先登陆"
