@@ -10,29 +10,6 @@
       </ul>
     </div>
   <% end %>
-  
-  <%= stylesheet_link_tag    "/kindeditor/themes/default/default.css"%>
-  <%= javascript_include_tag "/kindeditor/kindeditor-min.js"%>
-  <%= javascript_include_tag "/kindeditor/lang/zh_CN.js"%>
-  <script type="text/javascript">
-    var editor_bk_purpose_importance;
-    var editor_content_question;
-    var editor_cond_outcome;
-    var editor_feature_creation;
-    var editor_process;
-    var editor_opinion1;
-    var editor_opinion2;
-    var allowFileManager_true = {allowFileManager : true};
-    KindEditor.ready(function(K) {
-      editor_bk_purpose_importance = K.create('#post_bk_purpose_importance', allowFileManager_true);
-      editor_content_question = K.create('#post_content_question', allowFileManager_true);
-      editor_cond_outcome = K.create('#post_cond_outcome', allowFileManager_true);
-      editor_feature_creation = K.create('#post_feature_creation', allowFileManager_true);
-      editor_process = K.create('#post_process', allowFileManager_true);
-      editor_opinion1 = K.create('#post_opinion1', allowFileManager_true);
-      editor_opinion2 = K.create('#post_opinion2', allowFileManager_true);
-    });
-  </script>
 
   <div class="field">
     <%= f.label :title %><br />
@@ -56,31 +33,31 @@
   </div>
   <div class="field">
     <%= f.label :bk_purpose_importance %><br />
-    <%= f.text_area :bk_purpose_importance , :cols=>120%>
+    <%= f.text_area :bk_purpose_importance %>
   </div>
   <div class="field">
     <%= f.label :content_question %><br />
-    <%= f.text_area :content_question , :cols=>120%>
+    <%= f.text_area :content_question %>
   </div>
   <div class="field">
     <%= f.label :cond_outcome %><br />
-    <%= f.text_area :cond_outcome , :cols=>120%>
+    <%= f.text_area :cond_outcome %>
   </div>
   <div class="field">
     <%= f.label :feature_creation %><br />
-    <%= f.text_area :feature_creation , :cols=>120%>
+    <%= f.text_area :feature_creation %>
   </div>
   <div class="field">
     <%= f.label :process %><br />
-    <%= f.text_area :process , :cols=>120%>
+    <%= f.text_area :process %>
   </div>
   <div class="field">
     <%= f.label :opinion1 %><br />
-    <%= f.text_area :opinion1 , :cols=>120%>
+    <%= f.text_area :opinion1 %>
   </div>
   <div class="field">
     <%= f.label :opinion2 %><br />
-    <%= f.text_area :opinion2, :cols=>120 %>
+    <%= f.text_area :opinion2, :cols=>100 %>
   </div>
   <div class="actions">
     <%= f.submit t('.submit')%>
