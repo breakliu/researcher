@@ -1,0 +1,23 @@
+<h1>用户管理</h1>
+
+<table>
+  <tr>
+    <th>用户名</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+    <td><%= link_to '显 示', user %></td>
+    <td><%= link_to '编 辑', edit_user_path(user) %></td>
+    <td><%= link_to '删 除', user, confirm: '你确认删除此用户？', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新建用户', new_user_path %>

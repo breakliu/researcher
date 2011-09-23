@@ -1,0 +1,49 @@
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		<div class="error_messages">
+          <h2><%= '提交数据无效' %></h2>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="field">
+		<%= f.label :username %>
+		<%= f.text_field :username %>
+	</div>
+	<div class="field">
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</div>
+	<div class="field">
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<div class="field">
+		<%= f.label :age %>
+		<%= f.text_field :age %>
+	</div>
+	<div class="field">
+		<%= f.label :level %>
+		<%= f.text_field :level %>
+	</div>
+	<div class="field">
+		<%= f.label :major %>
+		<%= f.text_field :major %>
+	</div>
+	<div class="field">
+		<%= f.label :subject %>
+		<%= f.text_field :subject %>
+	</div>
+	<div class="field">
+		<%= f.label :phone %>
+		<%= f.text_field :phone %>
+	</div>
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="actions"><%= f.submit '提 交' %></div>
+<% end %>

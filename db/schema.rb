@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110923040759) do
+ActiveRecord::Schema.define(:version => 20110923084941) do
 
   create_table "kindeditor_assets", :force => true do |t|
     t.string   "asset"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20110923040759) do
     t.string   "subject",               :default => ""
     t.string   "school",                :default => ""
     t.string   "research_time",         :default => ""
-    t.string   "bk_purpose_importance", :default => "a"
+    t.text     "bk_purpose_importance", :default => ""
     t.text     "content_question",      :default => ""
     t.text     "cond_outcome",          :default => ""
     t.text     "feature_creation",      :default => ""
@@ -50,6 +50,11 @@ ActiveRecord::Schema.define(:version => 20110923040759) do
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.integer  "popedom",                      :default => 0
+    t.integer  "age"
+    t.string   "level"
+    t.string   "major"
+    t.string   "subject"
+    t.string   "phone"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

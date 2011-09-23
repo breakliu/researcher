@@ -5,6 +5,12 @@ cn:
         username: "用户名"
         password: "密码"
         password_confirmation: "再次输入"
+        age: "年龄"
+        level: "职称"
+        major: "专业学历"
+        subject: "任教学科"
+        phone: "联系电话"
+        email: "电子邮箱"
       post:
         title: "课题名称"
         grade_or_class: "所在年级"
