@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922163617) do
+ActiveRecord::Schema.define(:version => 20110923040759) do
 
   create_table "kindeditor_assets", :force => true do |t|
     t.string   "asset"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20110922163617) do
     t.string   "subject",               :default => ""
     t.string   "school",                :default => ""
     t.string   "research_time",         :default => ""
-    t.text     "bk_purpose_importance", :default => ""
+    t.string   "bk_purpose_importance", :default => "a"
     t.text     "content_question",      :default => ""
     t.text     "cond_outcome",          :default => ""
     t.text     "feature_creation",      :default => ""

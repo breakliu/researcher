@@ -7,6 +7,17 @@ cn:
         password_confirmation: "再次输入"
       post:
         title: "课题名称"
+        grade_or_class: "所在年级"
+        subject: "研究学科"
+        school: "所在学校"
+        research_time: "研究周期"
+        bk_purpose_importance: "课题研究的背景、目的及意义"
+        content_question: "课题研究的内容 (拟解决的主要问题)"
+        cond_outcome: "课题研究的条件及预期成果"
+        feature_creation: "特点与创新之处"
+        process: "课题研究步骤、进程"
+        opinion1: "审核意见1"
+        opinion2: "审核意见2"
     errors:
       models:
         user:
@@ -65,3 +76,4 @@ cn:
 
 
   first_login: "请先登陆"
+  bk_purpose_importance_html: "课题研究的目的与意义, 课题研究的背景分析, 文献综述"
