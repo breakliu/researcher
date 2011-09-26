@@ -1,8 +1,11 @@
 KindEditor.ready(function(K) {
-	K.create('#kindeditor_id', {
-		width: "100%",
-		allowFileManager: true,
-		uploadJson: '/kindeditor/upload',
-		fileManagerJson: '/kindeditor/filemanager'
-	});
+    for ( var i=1; i<=7; i++ )
+    {
+	    K.create('#kindeditor_id'+i, {
+		    width: "80%",
+		    allowFileManager: true,
+		    uploadJson: '/kindeditor/upload',
+		    fileManagerJson: '/kindeditor/filemanager'
+	    });
+    }
 });
