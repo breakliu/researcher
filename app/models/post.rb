@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-  belongs_to :user
+  has_many  :users_posts
+  has_many  :users, :through => :users_posts
 
   validates_presence_of :title
 
