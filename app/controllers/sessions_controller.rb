@@ -1,19 +1,21 @@
 class SessionsController < ApplicationController
-	def new
-	end
+  def new
+  end
 
-	def create
-		user = login(params[:username], params[:password], params[:remember_me])
-		if user
-			redirect_back_or_to root_url, :notice => "Logged in!"
-		else
-			flash.now.alert = "Username or password was invalid"
-			render :new
-		end
-	end
+  def create
+    user = login(params[:username], params[:password], params[:remember_me])
+    if user
+      session[:user_popedom] = user.popedom
+      #logger.info session.to_xml
+      redirect_back_or_to root_url, :notice => "Logged in!"
+    else
+      flash.now.alert = "Username or password was invalid"
+      render :new
+    end
+  end
 
-	def destroy
-		logout
-		redirect_to root_url, :notice => "Logged out!"
-	end
+  def destroy
+    logout
+    redirect_to root_url, :notice => "Logged out!"
+  end
 end

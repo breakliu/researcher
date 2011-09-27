@@ -32,6 +32,13 @@
     <%= f.text_field :research_time %>
   </div>
   <div class="field">
+    其他参与者<br />
+    <% @users.each do |user| %>
+      <%= check_box_tag "partner_ids[]", user.id, (true if @checkbox[user.id]) %>
+      <%= user.username %>
+    <% end %>
+  </div>
+  <div class="field">
     <%= f.label :bk_purpose_importance %><br />
     <%= f.text_area :bk_purpose_importance, :id => "kindeditor_id1" %>
   </div>

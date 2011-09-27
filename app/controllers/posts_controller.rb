@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :require_login, :only => [:new, :edit, :destroy]
+  before_filter :partner_ids_to_text, :only => [:create, :update]
   # GET /posts
   # GET /posts.json
   def index
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    @users = User.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +38,13 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @users = User.all
+    
+    ids = @post.partner_ids.split(',')
+    @checkbox = {}
+    ids.each do |id|
+      @checkbox[id.to_i] = true
+    end
   end
 
   # POST /posts
@@ -81,4 +90,13 @@ class PostsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  private
+    def partner_ids_to_text
+      if params[:partner_ids].nil?
+        params[:post][:partner_ids] = ""
+      else  
+        params[:post][:partner_ids] = params[:partner_ids].join(',')
+      end
+    end
 end
