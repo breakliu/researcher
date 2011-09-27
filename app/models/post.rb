@@ -1,4 +1,8 @@
 class Post < ActiveRecord::Base
+  belongs_to :user
+
+  validates_presence_of :title
+
   after_initialize :default_value
 
   def default_value
