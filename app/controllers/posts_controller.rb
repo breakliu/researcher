@@ -40,11 +40,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @users = User.all
     
-    ids = @post.partner_ids.split(',')
-    @checkbox = {}
-    ids.each do |id|
-      @checkbox[id.to_i] = true
-    end
+    #ids = @post.partner_ids.split(',')
+    #@checkbox = {}
+    #ids.each do |id|
+    #  @checkbox[id.to_i] = true
+    #end
   end
 
   # POST /posts
@@ -93,10 +93,10 @@ class PostsController < ApplicationController
 
   private
     def partner_ids_to_text
-      if params[:partner_ids].nil?
-        params[:post][:partner_ids] = ""
-      else  
-        params[:post][:partner_ids] = params[:partner_ids].join(',')
-      end
+      #if params[:partner_ids].nil?
+      #  params[:post][:partner_ids] = ""
+      #else  
+      #  params[:post][:partner_ids] = params[:partner_ids].join(',')
+      #end
     end
 end
