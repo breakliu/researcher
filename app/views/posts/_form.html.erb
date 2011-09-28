@@ -34,7 +34,7 @@
   <div class="field">
     其他参与者<br />
     <% @users.each do |user| %>
-      <%= check_box_tag "partner_ids[]", user.id %>
+      <%= check_box_tag "partner_ids[]", user.id, true if @checkbox[user.id] == true %>
       <%= user.username %>
     <% end %>
   </div>
