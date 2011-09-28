@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  has_many  :users_posts
+  has_many  :users_posts, :dependent => :delete_all
   has_many  :users, :through => :users_posts
 
   validates_presence_of :title

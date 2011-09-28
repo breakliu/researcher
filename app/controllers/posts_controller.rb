@@ -1,11 +1,34 @@
 # encoding: utf-8
 class PostsController < ApplicationController
   before_filter :require_login, :only => [:new, :edit, :destroy]
-  before_filter :partner_ids_to_text, :only => [:create, :update]
+  #before_filter :partner_ids_to_text, :only => [:create, :update]
+  
+  FLAG_CREATOR = 1
+  FLAG_PARTNER = 2
+
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
+    @creator = {}
+    @partner = {}
+
+    # 保存负责人与参与者的名单
+    @posts.each do |post|
+      c = []
+      p = []
+      post.users_posts.where(:operate_post_flag=>1).each do |creator|
+        c << creator.user.username
+      end
+      post.users_posts.where(:operate_post_flag=>2).each do |partner|
+        p << partner.user.username
+      end
+
+      logger.info c
+      logger.info p
+      @creator[post.id] = {:creator => c.join(', ')}
+      @partner[post.id] = {:partner => p.join(', ')}
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,6 +53,7 @@ class PostsController < ApplicationController
     @post = Post.new
     # 作为创建者的自身不放到参与者那里
     @users = User.find(:all, :conditions => ['id NOT IN (?)', [session[:user_id]]])
+    @checkbox = {}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,6 +64,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    # 作为创建者的自身不放到参与者那里
     @users = User.find(:all, :conditions => ['id NOT IN (?)', [session[:user_id]]])
     @checkbox = {}
 
@@ -64,7 +89,7 @@ class PostsController < ApplicationController
       ret1 = @post.save
 
       if ret1
-        ret2 = set_users_posts(@post.id, params[:partner_ids])
+        ret2 = create_users_posts(@post.id, params[:partner_ids])
         if not ret2
           raise ActiveRecord::Rollback
         end
@@ -89,13 +114,22 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+    ret = false
+
+    ActiveRecord::Base.transaction do
+      ret = update_partner_ids(@post.id, params[:partner_ids])
+      if not ret
+        raise ActiveRecord::Rollback
+      end
+    end
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if ret and @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: '更新成功' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        flash[:notice] = "保存失败，已回滚了数据库，请联系开发人员"
+        format.html { redirect_to :action => :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -114,31 +148,27 @@ class PostsController < ApplicationController
   end
 
   private
-  def partner_ids_to_text
-    #if params[:partner_ids].nil?
-    #  params[:post][:partner_ids] = ""
-    #else  
-    #  params[:post][:partner_ids] = params[:partner_ids].join(',')
-    #end
-  end
-
-  #把用户和post关键起来
-  #operate_post_flag: 创键者用1，参与者用2
-  def set_users_posts(post_id, partner_ids)
-    creator = UsersPost.new(:user_id=>session[:user_id], :post_id=>post_id, :operate_post_flag=>1)
-    if not creator.save
-      return false
-    end
-
+  def update_partner_ids(post_id, partner_ids)
+    UsersPost.where(:post_id=>post_id, :operate_post_flag=>FLAG_PARTNER).delete_all
     if not partner_ids.nil?
       partner_ids.each do |id|
-        partner = UsersPost.new(:user_id=>id, :post_id=>post_id, :operate_post_flag=>2)
+        partner = UsersPost.new(:user_id=>id, :post_id=>post_id, :operate_post_flag=>FLAG_PARTNER)
         if not partner.save
           return false
         end
       end
     end
-
     return true
+  end
+
+  #把用户和post关键起来
+  #operate_post_flag: 创键者用1，参与者用2
+  def create_users_posts(post_id, partner_ids)
+    creator = UsersPost.new(:user_id=>session[:user_id], :post_id=>post_id, :operate_post_flag=>FLAG_CREATOR)
+    if not creator.save
+      return false
+    end
+
+    return update_partner_ids(post_id, partner_ids)
   end
 end

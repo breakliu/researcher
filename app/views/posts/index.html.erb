@@ -4,6 +4,7 @@
   <tr>
     <th><%= t('.table_title') %></th>
     <th>立项负责人</th>
+    <th>参与者</th>
     <th>创建时间</th>
     <th>修改时间</th>
     <th></th>
@@ -14,7 +15,8 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.title %></td>
-    <td>post.user</td>
+    <td><%= @creator[post.id][:creator] %></td>
+    <td><%= @partner[post.id][:partner] %></td>
     <td><%= post.created_at %></td>
     <td><%= post.updated_at %></td>
     <td><%= link_to t('.show'), post %></td>

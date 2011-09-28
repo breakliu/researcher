@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110927164236) do
+ActiveRecord::Schema.define(:version => 20110928123456) do
 
   create_table "kindeditor_assets", :force => true do |t|
     t.string   "asset"
@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(:version => 20110927164236) do
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
 
-  create_table "users_posts", :id => false, :force => true do |t|
+  create_table "users_posts", :force => true do |t|
     t.integer  "user_id",                          :null => false
     t.integer  "post_id",                          :null => false
+    t.integer  "operate_post_flag", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "operate_post_flag", :default => 0
   end
 
 end
