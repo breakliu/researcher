@@ -1,3 +1,4 @@
+<%= include_kindeditor_if_needed %>
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">

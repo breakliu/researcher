@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p><b>课题名称:</b><%= @post.title %></p>
-<p><b>所在年级:</b><%= @post.grade_or_class %></p>
-<p><b>研究学科:</b><%= @post.subject %></p>
-<p><b>所在学校:</b><%= @post.school %></p>
-<p><b>研究周期:</b><%= @post.research_time %></p>
-<p><b>课题研究的背景、目的及意义:</b><%= @post.bk_purpose_importance %></p>
-<p><b>课题研究的内容(拟解决的主要问题):</b><%= @post.content_question %></p>
-<p><b>课题研究的条件及预期成果:</b><%= @post.cond_outcome %></p>
-<p><b>特点与创新之处:</b><%= @post.feature_creation %></p>
-<p><b>课题研究步骤、进程:</b><%= @post.process %></p>
-<p><b>审核意见1:</b><%= @post.opinion1 %></p>
-<p><b>审核意见2:</b><%= @post.opinion2 %></p>
+<p><b>课题名称:</b><br /><%= @post.title %></p>
+<p><b>所在年级:</b><br /><%= @post.grade_or_class %></p>
+<p><b>研究学科:</b><br /><%= @post.subject %></p>
+<p><b>所在学校:</b><br /><%= @post.school %></p>
+<p><b>研究周期:</b><br /><%= @post.research_time %></p>
+<p><b>课题研究的背景、目的及意义:</b><br /><%= raw @post.bk_purpose_importance %></p>
+<p><b>课题研究的内容(拟解决的主要问题):</b><br /><%= raw @post.content_question %></p>
+<p><b>课题研究的条件及预期成果:</b><br /><%= raw @post.cond_outcome %></p>
+<p><b>特点与创新之处:</b><br /><%= raw @post.feature_creation %></p>
+<p><b>课题研究步骤、进程:</b><br /><%= raw @post.process %></p>
+<p><b>审核意见1:</b><br /><%= raw @post.opinion1 %></p>
+<p><b>审核意见2:</b><br /><%= raw @post.opinion2 %></p>
 
 
 <%= link_to t('.edit'), edit_post_path(@post) %> |

@@ -6,7 +6,7 @@
     <th>立项负责人</th>
     <th>参与者</th>
     <th>创建时间</th>
-    <th>修改时间</th>
+    <!--th>修改时间</th-->
     <th></th>
     <th></th>
     <th></th>
@@ -18,7 +18,6 @@
     <td><%= @creator[post.id][:creator] %></td>
     <td><%= @partner[post.id][:partner] %></td>
     <td><%= post.created_at %></td>
-    <td><%= post.updated_at %></td>
     <td><%= link_to t('.show'), post %></td>
     <td><%= link_to t('.edit'), edit_post_path(post) %></td>
     <td><%= link_to t('.destroy'), post, confirm: t('.are_you_sure'), method: :delete %></td>
