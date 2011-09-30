@@ -1,3 +1,25 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post_table {
+  /*border-collapse:collapse;*/
+}
+
+.post_table .th1 { width: 50px; height: 25px;}
+.post_table .th2 { width: 500px; }
+.post_table .th3 { width: 75px; }
+.post_table .th4 { width: 150px; }
+.post_table .th5 { width: 160px; }
+.post_table .th6 { width: 150px; }
+
+.post_table .td2{ text-align: left; }
+
+.post_table .odd { background-color: #cce4ff;}
+.post_table .even { background-color: #ccffe4;}
+
+.post_table tr td
+{
+  height: 25px;
+  text-align: center;
+}

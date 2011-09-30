@@ -1,26 +1,24 @@
 <h1><%= t('.title') %></h1>
 
-<table>
+<table class="post_table">
   <tr>
-    <th><%= t('.table_title') %></th>
-    <th>立项负责人</th>
-    <th>参与者</th>
-    <th>创建时间</th>
+    <th class="th1">序 号</th>
+    <th class="th2"><%= t('.table_title') %></th>
+    <th class="th3">立项负责人</th>
+    <th class="th4">其它参与者</th>
+    <th class="th5">创建时间</th>
     <!--th>修改时间</th-->
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="th6" colspan="3">操 作</th>
   </tr>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
+<% @posts.each_with_index do |post, index| %>
+  <tr class="<%= cycle("odd", "even") %>">
+    <td><%= index+1 %></td>
+    <td class="td2"><%= post.title %></td>
     <td><%= @creator[post.id][:creator] %></td>
     <td><%= @partner[post.id][:partner] %></td>
-    <td><%= post.created_at %></td>
-    <td><%= link_to t('.show'), post %></td>
-    <td><%= link_to t('.edit'), edit_post_path(post) %></td>
-    <td><%= link_to t('.destroy'), post, confirm: t('.are_you_sure'), method: :delete %></td>
+    <td><%= post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+    <td colspan="3"><%= link_to t('.show'), post %>   <%= link_to t('.edit'), edit_post_path(post) %>   <%= link_to t('.destroy'), post, confirm: t('.are_you_sure'), method: :delete %></td>
   </tr>
 <% end %>
 </table>
