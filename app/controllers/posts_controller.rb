@@ -16,19 +16,22 @@ class PostsController < ApplicationController
 
     # 保存负责人与参与者的名单
     @posts.each do |post|
-      c = []
-      p = []
+      c_name = []
+      p_name = []
+      c_id = []
+      p_id = []
+
       post.users_posts.where(:operate_post_flag=>1).each do |creator|
-        c << creator.user.username
+        c_name << creator.user.username
+        c_id << creator.user.id
       end
       post.users_posts.where(:operate_post_flag=>2).each do |partner|
-        p << partner.user.username
+        p_name << partner.user.username
+        p_id << partner.user.id
       end
 
-      logger.info c
-      logger.info p
-      @creator[post.id] = {:creator => c.join(', ')}
-      @partner[post.id] = {:partner => p.join(', ')}
+      @creator[post.id] = {:creator => c_name.join(', '), :can_operate => c_id.include?(session[:user_id])}
+      @partner[post.id] = {:partner => p_name.join(', '), :can_operate => p_id.include?(session[:user_id])}
     end
 
     respond_to do |format|

@@ -12,13 +12,15 @@
   </tr>
 
 <% @posts.each_with_index do |post, index| %>
+  <% creator = @creator[post.id] %>
+  <% partner = @partner[post.id] %>
   <tr class="<%= cycle("odd", "even") %>">
     <td><%= index+1 %></td>
     <td class="td2"><%= post.title %></td>
-    <td><%= @creator[post.id][:creator] %></td>
-    <td><%= @partner[post.id][:partner] %></td>
+    <td><%= creator[:creator] %></td>
+    <td><%= partner[:partner] %></td>
     <td><%= post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
-    <td colspan="3"><%= link_to t('.show'), post %>   <%= link_to t('.edit'), edit_post_path(post) %>   <%= link_to t('.destroy'), post, confirm: t('.are_you_sure'), method: :delete %></td>
+    <td colspan="3"><%= link_to t('.show'), post %>   <%= link_to t('.edit'), edit_post_path(post) if creator[:can_operate] or partner[:can_operate] %>   <%= (link_to t('.destroy'), post, confirm: t('.are_you_sure'), method: :delete) if creator[:can_operate] %></td>
   </tr>
 <% end %>
 </table>
