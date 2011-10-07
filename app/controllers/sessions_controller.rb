@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SessionsController < ApplicationController
   def new
   end
@@ -7,15 +8,15 @@ class SessionsController < ApplicationController
     if user
       session[:user_popedom] = user.popedom
       #logger.info session.to_xml
-      redirect_back_or_to root_url, :notice => "Logged in!"
+      redirect_back_or_to root_url, :notice => "登录成功!"
     else
-      flash.now.alert = "Username or password was invalid"
+      flash.now.alert = "用户名或密码错误"
       render :new
     end
   end
 
   def destroy
     logout
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url, :notice => "退出成功！"
   end
 end

@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-<b>用户名: </b>
-<%= @user.username %>
-</p>
+<p><b>用户名: </b><%= @user.username %></p>
+<p><b>年龄: </b><%= @user.age %></p>
+<p><b>职称: </b><%= @user.level %></p>
+<p><b>专业学历: </b><%= @user.major %></p>
+<p><b>任教学科: </b><%= @user.subject %></p>
+<p><b>联系电话: </b><%= @user.phone %></p>
+<p><b>电子邮箱: </b><%= @user.email %></p>
 
 
 <%= link_to '编 辑', edit_user_path %>
-<%= link_to '返 回', admin_path %>
+<%= link_to '返 回', root_url %>

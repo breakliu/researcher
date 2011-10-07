@@ -1,5 +1,6 @@
 <p id="alert"><%= flash[:alert] %></p>
 <%= form_tag sessions_path do %>
+  <div class="login">
 	<div class="field">
 		<%= label_tag :username, t('.username')	%>
 		<%= text_field_tag :username, params[:username] %>
@@ -13,4 +14,5 @@
 		<%= label_tag :remember_me, t('.remember_me') %>
 	</div>
 	<div class="actions"><%= submit_tag t('.login') %></div>
+  </div>
 <% end %>
