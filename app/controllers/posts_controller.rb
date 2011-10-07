@@ -1,11 +1,7 @@
 # encoding: utf-8
 class PostsController < ApplicationController
   before_filter :require_login, :only => [:new, :edit, :destroy]
-  #before_filter :partner_ids_to_text, :only => [:create, :update]
   include_kindeditor :only => [:new, :edit]
-  
-  FLAG_CREATOR = 1
-  FLAG_PARTNER = 2
 
   # GET /posts
   # GET /posts.json

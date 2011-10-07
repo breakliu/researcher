@@ -1,5 +1,7 @@
 <%= include_kindeditor_if_needed %>
+
 <%= form_for(@post) do |f| %>
+  <div class="posts_form">
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -13,61 +15,57 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <b><%= f.label :title %></b><%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :grade_or_class %><br />
-    <%= f.text_field :grade_or_class %>
+    <b><%= f.label :grade_or_class %></b><%= f.text_field :grade_or_class %>
   </div>
   <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+    <b><%= f.label :subject %></b><%= f.text_field :subject %>
   </div>
   <div class="field">
-    <%= f.label :school %><br />
-    <%= f.text_field :school %>
+    <b><%= f.label :school %></b><%= f.text_field :school %>
   </div>
   <div class="field">
-    <%= f.label :research_time %><br />
-    <%= f.text_field :research_time %>
+    <b><%= f.label :research_time %></b><%= f.text_field :research_time %>
   </div>
   <div class="field">
-    其他参与者(最多选择两名其它参与者)<br />
-    <% @users.each do |user| %>
-      <%= check_box_tag "partner_ids[]", user.id, @checkbox[user.id] %>
-      <%= user.username %>
+    <b>其他参与者(最多选择两名其它参与者)</b><br />
+    <% @users.each_with_index do |user, i| %>
+      <span class="posts_span"><%= check_box_tag "partner_ids[]", user.id, @checkbox[user.id] %> <%= user.username %></span>
+      <%= raw "<br />" if (i+1) % 10 == 0 %>
     <% end %>
   </div>
   <div class="field">
-    <%= f.label :bk_purpose_importance %><br />
+    <b><%= f.label :bk_purpose_importance %></b><br />
     <%= f.text_area :bk_purpose_importance, :id => "kindeditor_id1" %>
   </div>
   <div class="field">
-    <%= f.label :content_question %><br />
+    <b><%= f.label :content_question %></b><br />
     <%= f.text_area :content_question, :id => "kindeditor_id2" %>
   </div>
   <div class="field">
-    <%= f.label :cond_outcome %><br />
+    <b><%= f.label :cond_outcome %></b><br />
     <%= f.text_area :cond_outcome, :id => "kindeditor_id3" %>
   </div>
   <div class="field">
-    <%= f.label :feature_creation %><br />
+    <b><%= f.label :feature_creation %></b><br />
     <%= f.text_area :feature_creation, :id => "kindeditor_id4" %>
   </div>
   <div class="field">
-    <%= f.label :process %><br />
+    <b><%= f.label :process %></b><br />
     <%= f.text_area :process, :id => "kindeditor_id5" %>
   </div>
-  <div class="field">
-    <%= f.label :opinion1 %><br />
-    <%= f.text_area :opinion1, :id => "kindeditor_id6" %>
+  <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
+    <b><%= f.label :opinion1 %></b><br />
+    <%= f.text_area :opinion1, :id => "kindeditor_id6", :readonly => true %>
   </div>
-  <div class="field">
-    <%= f.label :opinion2 %><br />
+  <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
+    <b><%= f.label :opinion2 %></b><br />
     <%= f.text_area :opinion2, :id => "kindeditor_id7" %>
   </div>
   <div class="actions">
     <%= f.submit t('.submit')%>
   </div>
+</div>
 <% end %>

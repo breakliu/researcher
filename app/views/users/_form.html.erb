@@ -1,4 +1,5 @@
 <%= form_for @user do |f| %>
+  <div class="users">
 	<% if @user.errors.any? %>
 		<div class="error_messages">
           <h2><%= '提交数据无效' %></h2>
@@ -9,7 +10,7 @@
 			</ul>
 		</div>
 	<% end %>
-  <div class="users">
+
 	<div class="field">
 		<%= f.label :username %>
 		<%= f.text_field :username %>

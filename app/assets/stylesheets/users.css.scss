@@ -4,10 +4,33 @@
 
 
 .users {
-  width: 700px;
+  width: 300px;
   margin: 10px auto;
+
 }
 
 .users label {
+  width: 80px;
   float: left;
+  text-align: left;
+  line-height: 25px;
+}
+
+.users ul{
+  text-align: left;
+}
+
+.users .actions input{
+  width: 80px;
+}
+
+.users_show {
+  text-align: left;
+  width: 300px;
+  margin: 10px auto;
+}
+
+.users_show .u {
+  width: 180px;
+  border: 1px;
 }

@@ -1,18 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p><b>课题名称:</b><br /><%= @post.title %></p>
-<p><b>所在年级:</b><br /><%= @post.grade_or_class %></p>
-<p><b>研究学科:</b><br /><%= @post.subject %></p>
-<p><b>所在学校:</b><br /><%= @post.school %></p>
-<p><b>研究周期:</b><br /><%= @post.research_time %></p>
-<p><b>课题研究的背景、目的及意义:</b><br /><%= raw @post.bk_purpose_importance %></p>
-<p><b>课题研究的内容(拟解决的主要问题):</b><br /><%= raw @post.content_question %></p>
-<p><b>课题研究的条件及预期成果:</b><br /><%= raw @post.cond_outcome %></p>
-<p><b>特点与创新之处:</b><br /><%= raw @post.feature_creation %></p>
-<p><b>课题研究步骤、进程:</b><br /><%= raw @post.process %></p>
-<p><b>审核意见1:</b><br /><%= raw @post.opinion1 %></p>
-<p><b>审核意见2:</b><br /><%= raw @post.opinion2 %></p>
+<div class="posts_show">
+  <div class="field">
+    <div><b>课题名称: </b><%= @post.title %></div>
+  </div>
+  <div class="field">
+    <div><b>所在年级: </b><%= @post.grade_or_class %></div>
+  </div>  
+  <div class="field">
+    <div><b>研究学科: </b><%= @post.subject %></div>
+  </div> 
+  <div class="field">
+    <div><b>所在学校: </b><%= @post.school %></div>
+  </div>
+  <div class="field">
+    <div><b>研究周期: </b><%= @post.research_time %></div>
+  </div>
+  <div class="field">
+    <div><b>课题研究的背景、目的及意义:</b></div>
+    <div><%= raw @post.bk_purpose_importance %></div>
+  </div>
+  <div class="field">
+    <div><b>课题研究的内容(拟解决的主要问题):</b></div>
+    <div><%= raw @post.content_question %></div>
+  </div>
+  <div class="field">
+    <div><b>课题研究的条件及预期成果:</b></div>
+    <div><%= raw @post.cond_outcome %></div>
+  </div>
+  <div class="field">
+    <div><b>特点与创新之处:</b></div>
+    <div><%= raw @post.feature_creation %></div>
+  </div>
+  <div class="field">
+    <div><b>课题研究步骤、进程:</b></div>
+    <div><%= raw @post.process %></div>
+  </div>
+  <div class="field">
+    <div><b>审核意见1:</b></div>
+    <div><%= raw @post.opinion1 %></div>
+  </div>
+  <div class="field">
+    <div><b>审核意见2:</b></div>
+    <div><%= raw @post.opinion2 %></div>
+  </div>
+</div>
 
 
-<%= link_to t('.edit'), edit_post_path(@post) %> |
+<!--%= link_to t('.edit'), edit_post_path(@post) %-->
 <%= link_to t('.back'), posts_path %>

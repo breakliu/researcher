@@ -1,5 +1,7 @@
 # encoding: utf-8
 class UsersController < ApplicationController
+  before_filter :require_admin_login, :only => [:destroy, :index]
+
   def new
     @user = User.new
   end
@@ -35,4 +37,22 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_url }
+      format.json { head :ok }
+    end
+  end
+
+  def require_admin_login
+    popedom = User.find(session[:user_id]).popedom
+    if popedom != 1
+      redirect_to root_url
+    end
+  end
+
 end
