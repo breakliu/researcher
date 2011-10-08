@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     # 作为创建者的自身不放到参与者那里
-    @users = User.find(:all, :conditions => ['id NOT IN (?)', [session[:user_id]]])
+    @users = User.find(:all, :conditions => ['id NOT IN (?) AND popedom = 0', [session[:user_id]]])
     @checkbox = {}
 
     respond_to do |format|
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     # 当前登陆者在编辑页面的其它参与者列表，不应该看到创建者和自身存在
-    @users = User.find(:all, :conditions => ['id NOT IN (?)', [session[:user_id], @post.users_posts.where(:operate_post_flag=>1)[0].id]])
+    @users = User.find(:all, :conditions => ['id NOT IN (?) AND popedom = 0', [session[:user_id], @post.users_posts.where(:operate_post_flag=>1)[0].id]])
     @checkbox = {}
 
     # 为选中的参与者标记

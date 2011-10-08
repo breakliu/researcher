@@ -33,7 +33,6 @@
     <b>其他参与者(最多选择两名其它参与者)</b><br />
     <% @users.each_with_index do |user, i| %>
       <span class="posts_span"><%= check_box_tag "partner_ids[]", user.id, @checkbox[user.id] %> <%= user.username %></span>
-      <%= raw "<br />" if (i+1) % 10 == 0 %>
     <% end %>
   </div>
   <div class="field">
