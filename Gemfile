@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'therubyracer'
-gem 'rake', '0.8.7'
+#gem 'rake', '0.8.7'
 
 gem "carrierwave"
 gem "rails_kindeditor"
