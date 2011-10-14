@@ -69,7 +69,7 @@ GEM
       faraday (~> 0.7.4)
       multi_json (~> 1.0.3)
     polyglot (0.3.2)
-    rack (1.3.4)
+    rack (1.3.3)
     rack-cache (1.1)
       rack (>= 0.4)
     rack-mount (0.8.3)
@@ -137,6 +137,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.1.0)
   jquery-rails
+  rack (= 1.3.3)
   rails (= 3.1.1)
   rails_kindeditor
   sass-rails (~> 3.1.0)

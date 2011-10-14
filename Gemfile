@@ -8,6 +8,8 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'therubyracer'
 #gem 'rake', '0.8.7'
+gem 'rack', '1.3.3'
+
 
 gem "carrierwave"
 gem "rails_kindeditor"
