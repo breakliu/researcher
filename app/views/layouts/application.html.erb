@@ -8,6 +8,7 @@
 	</head>
 	<body>
         <div class="menu">
+          <%= link_to "首 页", root_url %> | 
 		<% if current_user %>
             <%= t('.current_user_as') %><strong><%= current_user.username %></strong>
             | <%= link_to '修改用户信息', edit_user_path(current_user) %>
