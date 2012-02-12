@@ -1,6 +1,6 @@
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -8,7 +8,7 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'therubyracer'
 #gem 'rake', '0.8.7'
-gem 'rack', '1.3.3'
+#gem 'rack', '1.3.3'
 
 
 gem "carrierwave"
@@ -17,15 +17,15 @@ gem "rails_kindeditor"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+#gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
