@@ -1,5 +1,5 @@
 KindEditor.ready(function(K) {
-    for ( var i=1; i<=7; i++ )
+    for ( var i=1; i<=11; i++ )
     {
 	    K.create('#kindeditor_id'+i, {
 		    width: "900px",

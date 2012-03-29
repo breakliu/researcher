@@ -1,5 +1,3 @@
-<%= include_kindeditor_if_needed %>
-
 <%= form_for(@post) do |f| %>
   <div class="posts_form">
   <% if @post.errors.any? %>
@@ -55,13 +53,29 @@
     <b><%= f.label :process %></b><br />
     <%= f.text_area :process, :id => "kindeditor_id5" %>
   </div>
+  <div class="field">
+    <b><%= f.label :mid_research %></b><br />
+    <%= f.text_area :mid_research, :id => "kindeditor_id6" %>
+  </div>
+  <div class="field">
+    <b><%= f.label :final_result %></b><br />
+    <%= f.text_area :final_result, :id => "kindeditor_id7" %>
+  </div>
+  <div class="field">
+    <b><%= f.label :renewal %></b><br />
+    <%= f.text_area :renewal, :id => "kindeditor_id8" %>
+  </div>
+  <div class="field">
+    <b><%= f.label :attach_data %></b><br />
+    <%= f.text_area :attach_data, :id => "kindeditor_id9" %>
+  </div>
   <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
     <b><%= f.label :opinion1 %></b><br />
-    <%= f.text_area :opinion1, :id => "kindeditor_id6", :readonly => true %>
+    <%= f.text_area :opinion1, :id => "kindeditor_id10", :readonly => true %>
   </div>
   <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
     <b><%= f.label :opinion2 %></b><br />
-    <%= f.text_area :opinion2, :id => "kindeditor_id7" %>
+    <%= f.text_area :opinion2, :id => "kindeditor_id11" %>
   </div>
   <div class="actions">
     <%= f.submit t('.submit')%>

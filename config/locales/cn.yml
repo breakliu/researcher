@@ -22,6 +22,10 @@ cn:
         cond_outcome: "课题研究的条件及预期成果"
         feature_creation: "特点与创新之处"
         process: "课题研究步骤、进程"
+        mid_research: "中期研究"
+        final_result: "最终成果"
+        renewal: "申请延期"
+        attach_data: "附件资料"
         opinion1: "审核意见1"
         opinion2: "审核意见2"
     errors:
