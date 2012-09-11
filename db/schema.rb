@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(:version => 20120329094426) do
     t.string   "asset"
     t.integer  "file_size"
     t.string   "file_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "grade_or_class",        :default => ""
     t.string   "subject",               :default => ""
     t.string   "school",                :default => ""
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20120329094426) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.integer  "popedom",                      :default => 0
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20120329094426) do
     t.integer  "user_id",                          :null => false
     t.integer  "post_id",                          :null => false
     t.integer  "operate_post_flag", :default => 0
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

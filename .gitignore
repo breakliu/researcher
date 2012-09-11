@@ -6,6 +6,9 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/*.lock
 /tmp
 /public/uploads/
 /public/assets/
+*~
+.sass-cache/

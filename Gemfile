@@ -10,6 +10,7 @@ gem 'thin'
 gem 'sorcery'
 gem "carrierwave"
 gem "rails_kindeditor"
+gem 'therubyracer'
 
 
 # Gems used only for assets and not required
