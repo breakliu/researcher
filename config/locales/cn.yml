@@ -28,6 +28,7 @@ cn:
         attach_data: "附件资料"
         opinion1: "审核意见1"
         opinion2: "审核意见2"
+        evaluate_result: "评价结果"
     errors:
       models:
         user:

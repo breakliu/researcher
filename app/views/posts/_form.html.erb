@@ -77,6 +77,10 @@
     <b><%= f.label :opinion2 %></b><br />
     <%= f.text_area :opinion2, :id => "kindeditor_id11" %>
   </div>
+  <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
+    <b><%= f.label :evaluate_result %></b><br />
+    <%= f.text_area :evaluate_result, :id => "kindeditor_id12" %>
+  </div>
   <div class="actions">
     <%= f.submit t('.submit')%>
   </div>
