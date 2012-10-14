@@ -6,18 +6,18 @@
     <tr><th>所在学校</th><td><%= @post.school %></td></tr>
     <tr><th>研究周期</th><td><%= @post.research_time %></td></tr>
     <tr><th>开题时间</th><td><%= @post.term.name %></td></tr>
-    <tr><th>课题研究的背景、目的及意义</th><td><%= @post.bk_purpose_importance %></td></tr>
-    <tr><th>课题研究的内容(拟解决的主要问题)</th><td><%= @post.content_question %></td></tr>
-    <tr><th>课题研究的条件及预期成果</th><td><%= @post.cond_outcome %></td></tr>
-    <tr><th>特点与创新之处</th><td><%= @post.feature_creation %></td></tr>
-    <tr><th>课题研究步骤、进程</th><td><%= @post.process %></td></tr>
-    <tr><th>中期研究</th><td><%= @post.mid_research %></td></tr>
-    <tr><th>最终成果</th><td><%= @post.final_result %></td></tr>
-    <tr><th>申请延期</th><td><%= @post.renewal %></td></tr>
-    <tr><th>附件资料</th><td><%= @post.attach_data %></td></tr>
-    <tr><th>审核意见1</th><td><%= @post.opinion1 %></td></tr>
-    <tr><th>审核意见2</th><td><%= @post.opinion2 %></td></tr>
-    <tr><th>评价结果</th><td><%= @post.evaluate_result %></td></tr>
+    <tr><th>课题研究的背景、目的及意义</th><td><%= @post.bk_purpose_importance.html_safe %></td></tr>
+    <tr><th>课题研究的内容(拟解决的主要问题)</th><td><%= @post.content_question.html_safe %></td></tr>
+    <tr><th>课题研究的条件及预期成果</th><td><%= @post.cond_outcome.html_safe %></td></tr>
+    <tr><th>特点与创新之处</th><td><%= @post.feature_creation.html_safe %></td></tr>
+    <tr><th>课题研究步骤、进程</th><td><%= @post.process.html_safe %></td></tr>
+    <tr><th>中期研究</th><td><%= @post.mid_research.html_safe %></td></tr>
+    <tr><th>最终成果</th><td><%= @post.final_result.html_safe %></td></tr>
+    <tr><th>申请延期</th><td><%= @post.renewal.html_safe %></td></tr>
+    <tr><th>附件资料</th><td><%= @post.attach_data.html_safe if not @post.attach_data.blank? %></td></tr>
+    <tr><th>审核意见1</th><td><%= @post.opinion1.html_safe if not @post.opinion1.blank? %></td></tr>
+    <tr><th>审核意见2</th><td><%= @post.opinion2.html_safe if not @post.opinion2.blank? %></td></tr>
+    <tr><th>评价结果</th><td><%= @post.evaluate_result.html_safe if not @post.evaluate_result.blank? %></td></tr>
   </tbody>
 </table>
 
