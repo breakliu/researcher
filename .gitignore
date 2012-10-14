@@ -12,3 +12,4 @@
 /public/assets/
 *~
 .sass-cache/
+db/schema.rb
