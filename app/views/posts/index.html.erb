@@ -1,7 +1,7 @@
 <h2>一点研究课题列表</h2>
 <div class="pull-left">
   <%= form_tag('/search_by_term', :method => :get) do %>
-  <b>学期：</b><%= select_tag "term_id", options_from_collection_for_select(Term.all, "id", "name", params[:term_id]), onchange: "submit()" %>
+  <b>年度：</b><%= select_tag "term_id", options_from_collection_for_select(Term.all, "id", "name", params[:term_id]), onchange: "submit()" %>
   <% end %>
 </div>
 <%= link_to '新建课题', new_post_path, :class => 'btn btn-primary pull-right' %>
