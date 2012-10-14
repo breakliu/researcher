@@ -11,7 +11,7 @@ gem 'sorcery'
 gem "rails_kindeditor"
 gem 'therubyracer'
 gem 'simple_form'
-gem 'will_paginate'
+#gem 'will_paginate'
 
 
 # Gems used only for assets and not required

@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.paginate(:page => params[:page])
+    if not params[:term_id].blank?
+      @posts = Term.find(params[:term_id]).posts
+    else
+      @posts = Term.first.posts#paginate(:page => params[:page])
+    end
     @creator = {}
     @partner = {}
 

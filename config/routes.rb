@@ -12,6 +12,8 @@ Researcher::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   get "admin" => "users#index", :as => "admin"
 
+  get '/search_by_term/' => "posts#index", :as => "search_by_term"
+
 
   root :to => 'posts#index'
 

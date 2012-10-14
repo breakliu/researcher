@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
 
   #after_initialize :default_value
 
-  self.per_page = 15
+  #self.per_page = 15
   
   default_scope :order => 'created_at desc'
 
