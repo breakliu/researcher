@@ -1,88 +1,28 @@
-<%= form_for(@post) do |f| %>
-  <div class="posts_form">
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <b><%= f.label :title %></b><%= f.text_field :title %>
+<%= simple_form_for(@post, :html => { :class => 'form-horizontal' } ) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :grade_or_class %>
+    <%= f.input :subject %>
+    <%= f.input :school %>
+    <%= f.input :research_time %>
+    <%= f.association :term, include_blank: false %>
+    <%= f.association :users, :collection => @users, :as => :check_boxes, :label_method => :username, item_wrapper_class: 'inline', :label => '其他参与者(最多选择两名其它参与者)' %>
+    <%= f.input :bk_purpose_importance, as: :kindeditor %>
+    <%= f.input :content_question, as: :kindeditor %>
+    <%= f.input :cond_outcome, as: :kindeditor %>
+    <%= f.input :feature_creation, as: :kindeditor %>
+    <%= f.input :process, as: :kindeditor %>
+    <%= f.input :mid_research, as: :kindeditor %>
+    <%= f.input :final_result, as: :kindeditor %>
+    <%= f.input :renewal, as: :kindeditor %>
+    <%= f.input :attach_data, as: :kindeditor %>
+    <%= f.input :opinion1, as: :kindeditor if current_user.popedom == 1 %>
+    <%= f.input :opinion2, as: :kindeditor if current_user.popedom == 1 %>
+    <%= f.input :evaluate_result, as: :kindeditor if current_user.popedom == 1 %>    
+    <%= f.hidden_field :creator_id, value: current_user.id %>
   </div>
-  <div class="field">
-    <b><%= f.label :grade_or_class %></b><%= f.text_field :grade_or_class %>
+  <div class="form-actions">
+    <%= f.button :submit, '确 定', :class => "btn btn-primary" %>
+    <%= link_to '取 消', posts_path, :class => "btn" %>
   </div>
-  <div class="field">
-    <b><%= f.label :subject %></b><%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <b><%= f.label :school %></b><%= f.text_field :school %>
-  </div>
-  <div class="field">
-    <b><%= f.label :research_time %></b><%= f.text_field :research_time %>
-  </div>
-  <div class="field">
-    <b>其他参与者(最多选择两名其它参与者)</b><br />
-    <% @users.each_with_index do |user, i| %>
-      <span class="posts_span"><%= check_box_tag "partner_ids[]", user.id, @checkbox[user.id] %> <%= user.username %></span>
-    <% end %>
-  </div>
-  <div class="field">
-    <b><%= f.label :bk_purpose_importance %></b><br />
-    <%= f.text_area :bk_purpose_importance, :id => "kindeditor_id1" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :content_question %></b><br />
-    <%= f.text_area :content_question, :id => "kindeditor_id2" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :cond_outcome %></b><br />
-    <%= f.text_area :cond_outcome, :id => "kindeditor_id3" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :feature_creation %></b><br />
-    <%= f.text_area :feature_creation, :id => "kindeditor_id4" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :process %></b><br />
-    <%= f.text_area :process, :id => "kindeditor_id5" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :mid_research %></b><br />
-    <%= f.text_area :mid_research, :id => "kindeditor_id6" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :final_result %></b><br />
-    <%= f.text_area :final_result, :id => "kindeditor_id7" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :renewal %></b><br />
-    <%= f.text_area :renewal, :id => "kindeditor_id8" %>
-  </div>
-  <div class="field">
-    <b><%= f.label :attach_data %></b><br />
-    <%= f.text_area :attach_data, :id => "kindeditor_id9" %>
-  </div>
-  <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
-    <b><%= f.label :opinion1 %></b><br />
-    <%= f.text_area :opinion1, :id => "kindeditor_id10", :readonly => true %>
-  </div>
-  <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
-    <b><%= f.label :opinion2 %></b><br />
-    <%= f.text_area :opinion2, :id => "kindeditor_id11" %>
-  </div>
-  <div class="field" <%= raw 'style="display: none"' if session[:user_popedom] != 1 %>>
-    <b><%= f.label :evaluate_result %></b><br />
-    <%= f.text_area :evaluate_result, :id => "kindeditor_id12" %>
-  </div>
-  <div class="actions">
-    <%= f.submit t('.submit')%>
-  </div>
-</div>
 <% end %>

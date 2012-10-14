@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      auto_login(@user)
       redirect_to @user, :notice => "新建用户成功"
     else
       render :new
@@ -16,9 +17,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])    
+    @user = User.find(params[:id])
     respond_to do | format |
       if @user.update_attributes(params[:user])
+        auto_login(@user)
         format.html { redirect_to @user, :notice => "更新用户成功" }
       else
         format.html { render action: "edit" }

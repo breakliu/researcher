@@ -1,71 +1,24 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-bordered">
+  <tbody>
+    <tr><th width="220px">课题名称</th><td><%= @post.title %></td></tr>
+    <tr><th>所在年级</th><td><%= @post.grade_or_class %></td></tr>
+    <tr><th>研究学科</th><td><%= @post.subject %></td></tr>
+    <tr><th>所在学校</th><td><%= @post.school %></td></tr>
+    <tr><th>研究周期</th><td><%= @post.research_time %></td></tr>
+    <tr><th>开题时间</th><td><%= @post.term.name %></td></tr>
+    <tr><th>课题研究的背景、目的及意义</th><td><%= @post.bk_purpose_importance %></td></tr>
+    <tr><th>课题研究的内容(拟解决的主要问题)</th><td><%= @post.content_question %></td></tr>
+    <tr><th>课题研究的条件及预期成果</th><td><%= @post.cond_outcome %></td></tr>
+    <tr><th>特点与创新之处</th><td><%= @post.feature_creation %></td></tr>
+    <tr><th>课题研究步骤、进程</th><td><%= @post.process %></td></tr>
+    <tr><th>中期研究</th><td><%= @post.mid_research %></td></tr>
+    <tr><th>最终成果</th><td><%= @post.final_result %></td></tr>
+    <tr><th>申请延期</th><td><%= @post.renewal %></td></tr>
+    <tr><th>附件资料</th><td><%= @post.attach_data %></td></tr>
+    <tr><th>审核意见1</th><td><%= @post.opinion1 %></td></tr>
+    <tr><th>审核意见2</th><td><%= @post.opinion2 %></td></tr>
+    <tr><th>评价结果</th><td><%= @post.evaluate_result %></td></tr>
+  </tbody>
+</table>
 
-<div class="posts_show">
-  <div class="field">
-    <div><b>课题名称: </b><%= @post.title %></div>
-  </div>
-  <div class="field">
-    <div><b>所在年级: </b><%= @post.grade_or_class %></div>
-  </div>  
-  <div class="field">
-    <div><b>研究学科: </b><%= @post.subject %></div>
-  </div> 
-  <div class="field">
-    <div><b>所在学校: </b><%= @post.school %></div>
-  </div>
-  <div class="field">
-    <div><b>研究周期: </b><%= @post.research_time %></div>
-  </div>
-  <div class="field">
-    <div><b>课题研究的背景、目的及意义:</b></div>
-    <div><%= raw @post.bk_purpose_importance %></div>
-  </div>
-  <div class="field">
-    <div><b>课题研究的内容(拟解决的主要问题):</b></div>
-    <div><%= raw @post.content_question %></div>
-  </div>
-  <div class="field">
-    <div><b>课题研究的条件及预期成果:</b></div>
-    <div><%= raw @post.cond_outcome %></div>
-  </div>
-  <div class="field">
-    <div><b>特点与创新之处:</b></div>
-    <div><%= raw @post.feature_creation %></div>
-  </div>
-  <div class="field">
-    <div><b>课题研究步骤、进程:</b></div>
-    <div><%= raw @post.process %></div>
-  </div>
-  <div class="field">
-    <div><b>中期研究:</b></div>
-    <div><%= raw @post.mid_research %></div>
-  </div>
-  <div class="field">
-    <div><b>最终成果:</b></div>
-    <div><%= raw @post.final_result %></div>
-  </div>
-  <div class="field">
-    <div><b>申请延期:</b></div>
-    <div><%= raw @post.renewal %></div>
-  </div>
-  <div class="field">
-    <div><b>附件资料:</b></div>
-    <div><%= raw @post.attach_data %></div>
-  </div>
-  <div class="field">
-    <div><b>审核意见1:</b></div>
-    <div><%= raw @post.opinion1 %></div>
-  </div>
-  <div class="field">
-    <div><b>审核意见2:</b></div>
-    <div><%= raw @post.opinion2 %></div>
-  </div>
-  <div class="field">
-    <div><b>评价结果:</b></div>
-    <div><%= raw @post.evaluate_result %></div>
-  </div>
-</div>
-
-
-<!--%= link_to t('.edit'), edit_post_path(@post) %-->
-<%= link_to t('.back'), posts_path %>
+<p><%= link_to '返 回', posts_path, :class => 'btn btn-primary' %></p>

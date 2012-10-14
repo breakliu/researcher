@@ -1,6 +1,6 @@
 source 'http://ruby.taobao.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -8,9 +8,10 @@ gem 'rails', '3.2.2'
 gem 'sqlite3'
 gem 'thin'
 gem 'sorcery'
-gem "carrierwave"
 gem "rails_kindeditor"
 gem 'therubyracer'
+gem 'simple_form'
+gem 'will_paginate'
 
 
 # Gems used only for assets and not required

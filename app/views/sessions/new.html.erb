@@ -1,18 +1,27 @@
-<p id="alert"><%= flash[:alert] %></p>
-<%= form_tag sessions_path do %>
-  <div class="login">
-	<div class="field">
-		<%= label_tag :username, t('.username')	%>
-		<%= text_field_tag :username, params[:username] %>
-	</div>
-	<div class="field">
-		<%= label_tag :password, t('.password') %>
-		<%= password_field_tag :password %>
-	</div>
-	<div class="field">
-		<%= check_box_tag :remember_me, 1, params[:remember_me] %>
-		<%= label_tag :remember_me, t('.remember_me') %>
-	</div>
-	<div class="actions"><%= submit_tag t('.login') %></div>
+<%= form_tag sessions_path, class: "form-horizontal" do %>
+  <fieldset>
+  <legend>登 陆</legend>
+  <div class="form-inputs">
+    <div class="control-group">
+      <%= label_tag :username, '用户名', class: "control-label" %>
+      <div class="controls">
+        <%= text_field_tag :username, params[:username] %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag :password, "密 码", :class=>"control-label" %>
+      <div class="controls">
+        <%= password_field_tag :password, '' %>
+      </div>
+    </div>
+    <div class="control-group">
+	  <%= label_tag :remember_me, '记住我', :class=>"control-label" %>
+	  <div class="controls">
+    	<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+      </div>
+    </div>
   </div>
+  <div class="form-actions">
+    <div><%= submit_tag " 登 陆 ", :class => 'btn btn-primary' %></div>
+  </fieldset>
 <% end %>

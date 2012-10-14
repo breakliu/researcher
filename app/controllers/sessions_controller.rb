@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = login(params[:username], params[:password], params[:remember_me])
     if user
-      session[:user_popedom] = user.popedom
+      #session[:user_popedom] = user.popedom
       #logger.info session.to_xml
       redirect_back_or_to root_url, :notice => "登录成功!"
     else

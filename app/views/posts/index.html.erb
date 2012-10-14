@@ -1,30 +1,29 @@
-<h1><%= t('.title') %></h1>
-<h3 class="posts_new_post"><%= link_to '新建课题', new_post_path %></h3>
-<table class="post_table">
-  <tr>
-    <th class="th1">序 号</th>
-    <th class="th2"><%= t('.table_title') %></th>
-    <th class="th3">立项负责人</th>
-    <th class="th4">其它参与者</th>
-    <th class="th5">创建时间</th>
-    <!--th>修改时间</th-->
-    <th class="th6" colspan="3">操 作</th>
-  </tr>
-
-<% @posts.each_with_index do |post, index| %>
-  <% creator = @creator[post.id] %>
-  <% partner = @partner[post.id] %>
-  <tr class="<%= cycle("odd", "even") %>">
-    <td><%= index+1 %></td>
-    <td class="td2"><%= post.title %></td>
-    <td><%= creator[:creator] %></td>
-    <td><%= partner[:partner] %></td>
-    <td><%= post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
-    <td colspan="3"><%= link_to t('.show'), post %>   <%= link_to t('.edit'), edit_post_path(post) if creator[:can_operate] or partner[:can_operate] or session[:user_popedom] == 1 %>   <%= (link_to t('.destroy'), post, confirm: t('.are_you_sure'), method: :delete) if creator[:can_operate] or session[:user_popedom] == 1%></td>
-  </tr>
-<% end %>
+<h2>一点研究课题列表</h2>
+<%= link_to '新建课题', new_post_path, :class => 'btn btn-primary pull-right' %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>课题名称</th>
+      <th>立项负责人</th>
+      <th>其它参与者</th>
+      <th>创建时间</th>
+      <th>操 作</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @posts.each_with_index do |post| %>
+    <% creator = @creator[post.id] %>
+    <% partner = @partner[post.id] %>
+    <tr>
+      <td><%= link_to post.title, post %></td>
+      <td><%= creator[:username] %></td>
+      <td><%= partner[:username] %></td>
+      <td><%= post.term.name %></td>
+      <td><%= link_to '编 辑', edit_post_path(post), :class => 'btn btn-mini btn-primary' if creator[:can_operate] or partner[:can_operate]%>   <%= link_to '删 除', post, confirm: '你确定删除?', method: :delete, :class => 'btn btn-mini btn-danger' if creator[:can_operate]%>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
 
-<br />
-
-
+<%= will_paginate @posts, class: 'apple_pagination' %>
