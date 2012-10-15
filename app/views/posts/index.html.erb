@@ -1,7 +1,7 @@
 <h2>一点研究课题列表</h2>
 <div class="pull-left">
   <%= form_tag('/search_by_term', :method => :get) do %>
-  <b>年度：</b><%= select_tag "term_id", options_from_collection_for_select(Term.all, "id", "name", params[:term_id]), onchange: "submit()" %>
+  <b>开题时间：</b><%= select_tag "term_id", options_from_collection_for_select(Term.all, "id", "name", params[:term_id]), onchange: "submit()" %>
   <% end %>
 </div>
 <%= link_to '新建课题', new_post_path, :class => 'btn btn-primary pull-right' %>
@@ -9,10 +9,11 @@
   <thead>
     <tr>
       <th>课题名称</th>
-      <th>立项负责人</th>
-      <th>其它参与者</th>
-      <th>创建时间</th>
-      <th>操 作</th>
+      <th width="100px">立项负责人</th>
+      <th width="125px">其它参与者</th>
+      <th width="75px">研究周期</th>
+      <th width="100px">创建时间</th>
+      <th width="100px">操 作</th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +24,8 @@
       <td><%= link_to post.title, post %></td>
       <td><%= creator[:username] %></td>
       <td><%= partner[:username] %></td>
-      <td><%= post.term.name %></td>
+      <td><%= post.research_time %></td>
+      <td><%= post.created_at.strftime('%Y-%m-%d') %></td>
       <td><%= link_to '编 辑', edit_post_path(post), :class => 'btn btn-mini btn-primary' if creator[:can_operate] or partner[:can_operate]%>   <%= link_to '删 除', post, confirm: '你确定删除?', method: :delete, :class => 'btn btn-mini btn-danger' if creator[:can_operate]%>
       </td>
     </tr>
