@@ -1,6 +1,8 @@
 <table class="table table-bordered">
   <tbody>
     <tr><th width="220px">课题名称</th><td><%= @post.title %></td></tr>
+    <tr><th>立项负责人</th><td><%= @creator.username %></td></tr>
+    <tr><th>其它参与者</th><td><%= @partners %></td></tr>
     <tr><th>所在年级</th><td><%= @post.grade_or_class %></td></tr>
     <tr><th>研究学科</th><td><%= @post.subject %></td></tr>
     <tr><th>所在学校</th><td><%= @post.school %></td></tr>

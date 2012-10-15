@@ -47,6 +47,15 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @creator = User.find(@post.creator_id)
+
+    p_name = []
+    @post.users_posts.each do |partner|
+      if partner.user.id != @creator.id
+        p_name << partner.user.username
+      end
+    end
+    @partners = p_name.join(', ')
 
     respond_to do |format|
       format.html # show.html.erb
