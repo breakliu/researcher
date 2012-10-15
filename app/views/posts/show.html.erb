@@ -7,7 +7,7 @@
     <tr><th>研究学科</th><td><%= @post.subject %></td></tr>
     <tr><th>所在学校</th><td><%= @post.school %></td></tr>
     <tr><th>研究周期</th><td><%= @post.research_time %></td></tr>
-    <tr><th>开题时间</th><td><%= @post.term.name %></td></tr>
+    <tr><th>学 年</th><td><%= @post.term.name %></td></tr>
     <tr><th>课题研究的背景、目的及意义</th><td><%= @post.bk_purpose_importance.html_safe %></td></tr>
     <tr><th>课题研究的内容(拟解决的主要问题)</th><td><%= @post.content_question.html_safe %></td></tr>
     <tr><th>课题研究的条件及预期成果</th><td><%= @post.cond_outcome.html_safe %></td></tr>
