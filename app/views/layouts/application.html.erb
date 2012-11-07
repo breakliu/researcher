@@ -50,7 +50,8 @@
 	      <%= link_to "西溪小学一点研究系统", root_path, :class => "brand" %>
         <div class="nav-collapse">
 					<ul class="nav">
-					  <li class="homepage size14px"><%= link_to '<i class="icon-home icon-white"></i> 首页'.html_safe, root_path %></li>
+            <li class="homepage size14px"><%= link_to '<i class="icon-home icon-white"></i> 首页'.html_safe, root_path %></li>
+					  <li class="homepage size14px"><%= link_to '<i class="icon-book icon-white"></i> 指南'.html_safe, guides_path %></li>
           </ul>
 					<ul class="nav pull-right">
 					<% if logged_in? %>

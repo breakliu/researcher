@@ -1,4 +1,6 @@
 Researcher::Application.routes.draw do
+  resources :guides
+
   resources :terms
 
   resources :posts

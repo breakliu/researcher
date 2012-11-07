@@ -1,0 +1,20 @@
+<h2>一点研究指南</h2>
+<%= link_to '新建', new_guide_path, :class => 'btn btn-primary pull-right' if @admin == 1 %>
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th width="70%">标 题</th>
+    <th width="15%">修改时间</th>
+    <th width="15%">操 作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @guides.each do |guide| %>
+    <tr>
+      <td><%= link_to guide.name, guide  %></td>
+      <td><%= guide.updated_at.strftime('%Y-%m-%d') %></td>
+      <td><%= link_to '编 辑', edit_guide_path(guide), :class => 'btn btn-mini btn-primary' if @admin == 1 %>  <%= link_to '删 除', guide, method: :delete, data: { confirm: '你确定删除?' }, :class => 'btn btn-mini btn-danger' if @admin == 1 %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

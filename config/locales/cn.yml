@@ -30,6 +30,9 @@ cn:
         opinion2: "审核意见2"
         evaluate_result: "评价结果"
         term: "学年"
+      guide:
+        name: "标题"
+        content: "内容"
     errors:
       models:
         user:
