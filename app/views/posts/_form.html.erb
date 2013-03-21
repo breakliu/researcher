@@ -19,7 +19,7 @@
     <%= f.input :opinion1, as: :kindeditor if current_user.popedom == 1 %>
     <%= f.input :opinion2, as: :kindeditor if current_user.popedom == 1 %>
     <%= f.input :evaluate_result, as: :kindeditor if current_user.popedom == 1 %>    
-    <%= f.hidden_field :creator_id, value: @post.creator_id %>
+    <%#= f.hidden_field :creator_id, value: @post.creator_id %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, '确 定', :class => "btn btn-primary" %>

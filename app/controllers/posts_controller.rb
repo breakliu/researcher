@@ -78,12 +78,15 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
-    @users = User.where('id NOT IN (?) AND popedom = 0', [current_user.id, @post.creator_id])
+    @users = User.where('id NOT IN (?) AND popedom = 0', @post.creator_id)
   end
 
   # POST /posts
   # POST /posts.json
   def create
+    # 当前用户就是创建者
+    params[:post][:creator_id] = current_user.id
+
     # 如果没有加入自己的id到关联表数组，手动加入
     if not params[:post][:user_ids].include?(params[:post][:creator_id])
       params[:post][:user_ids].insert(0, params[:post][:creator_id])
@@ -108,9 +111,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       # 如果没有加入自己的id到关联表数组，手动加入
-      if not params[:post][:user_ids].include?(params[:post][:creator_id])
-        params[:post][:user_ids].insert(0, params[:post][:creator_id])
-      end
+      #if not params[:post][:user_ids].include?(params[:post][:creator_id])
+      #  params[:post][:user_ids].insert(0, params[:post][:creator_id])
+      #end
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: '更新课题成功' }
         format.json { head :ok }
